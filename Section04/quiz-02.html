@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let output = "";
+    const size = 5;
+
+    for (let i = 1; i <= (size * 2) - 1; i++) {
+      if (i <= size) {
+        for (let j = 1; j <= (size - i); j++) {
+          output += " ";
+        }
+
+        for (let j = 1; j <= (2 * i) - 1; j++) {
+          output += "*";
+        }
+      } else {
+        for (let j = 1; j <= (i - size); j++) {
+          output += " ";
+        }
+
+        for (let j = 1; j <= ((size * 2) - 1) - (2 * (i - size)); j++) {
+          output += "*";
+        }
+      }
+
+      output += "\n";
+    }
+
+    console.log(output);
+    
+  </script>
+</body>
+
+</html>
