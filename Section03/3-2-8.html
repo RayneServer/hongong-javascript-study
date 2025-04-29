@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const inputYear = Number(prompt("태어난 해를 입력해주세요: "));
+    const myAnimal = inputYear % 12;
+
+    let result;
+    if (myAnimal === 0) { result = "원숭이" }
+    else if (myAnimal === 1) { result = "닭" }
+    else if (myAnimal === 2) { result = "개" }
+    else if (myAnimal === 3) { result = "돼지" }
+    else if (myAnimal === 4) { result = "쥐" }
+    else if (myAnimal === 5) { result = "소" }
+    else if (myAnimal === 6) { result = "호랑이" }
+    else if (myAnimal === 7) { result = "토끼" }
+    else if (myAnimal === 8) { result = "용" }
+    else if (myAnimal === 9) { result = "뱀" }
+    else if (myAnimal === 10) { result = "말" }
+    else if (myAnimal === 11) { result = "양" };
+
+    alert(`${inputYear}년에 태어났다면 ${result}띠입니다.`);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const inputYear = Number(prompt("태어난 해를 입력해주세요: "));
+    const myAnimal = inputYear % 12;
+    const myYear = inputYear % 10;
+
+    let resultAnimal;
+    switch (myAnimal) {
+      case 0:
+        resultAnimal = "신";
+        break;
+
+      case 1:
+        resultAnimal = "유";
+        break;
+
+      case 2:
+        resultAnimal = "술";
+        break;
+
+      case 3:
+        resultAnimal = "해";
+        break;
+
+      case 4:
+        resultAnimal = "자";
+        break;
+
+      case 5:
+        resultAnimal = "축";
+        break;
+
+      case 6:
+        resultAnimal = "인";
+        break;
+
+      case 7:
+        resultAnimal = "묘";
+        break;
+
+      case 8:
+        resultAnimal = "진";
+        break;
+
+      case 9:
+        resultAnimal = "사";
+        break;
+
+      case 10:
+        resultAnimal = "오";
+        break;
+
+      case 11:
+        resultAnimal = "미";
+        break;
+    }
+
+    let resultYear;
+    switch (myYear) {
+      case 0:
+        resultYear = "경";
+        break;
+
+      case 1:
+        resultYear = "신";
+        break;
+
+      case 2:
+        resultYear = "임";
+        break;
+
+      case 3:
+        resultYear = "계";
+        break;
+
+      case 4:
+        resultYear = "갑";
+        break;
+
+      case 5:
+        resultYear = "을";
+        break;
+
+      case 6:
+        resultYear = "병";
+        break;
+
+      case 7:
+        resultYear = "정";
+        break;
+
+      case 8:
+        resultYear = "무";
+        break;
+
+      case 9:
+        resultYear = "기";
+        break;
+    }
+
+    alert(`${inputYear}년은 ${resultYear + resultAnimal}년입니다.`);
+  </script>
+</body>
+
+</html>
