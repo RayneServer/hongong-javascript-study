@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    myFunc();
+
+    function myFunc() {
+      console.log("1번째 선언 함수");
+    }
+  </script>
+
+  <script>
+    function myFunc() {
+      console.log("2번째 선언 함수");
+    }
+  </script>
+
+  <script>
+    myFunc();
+  </script>
+</body>
+
+</html>
