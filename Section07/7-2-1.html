@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const textAreaTag = document.querySelector("textarea");
+      const h1Tag = document.querySelector("h1");
+
+      textAreaTag.addEventListener("keyup", (event) => {
+        const length = textAreaTag.value.length;
+        h1Tag.textContent = `글자 수: ${length}`;
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <h1></h1>
+  <textarea></textarea>
+</body>
+
+</html>

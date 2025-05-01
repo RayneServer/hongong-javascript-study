@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const h1Tag = document.querySelector("h1");
+      const print = (event) => {
+        let output = "";
+
+        output += `Alt: ${event.altKey}<br>`;
+        output += `Ctrl: ${event.ctrlKey}<br>`;
+        output += `Shift: ${event.shiftKey}<br>`;
+        output += `Code: ${typeof(event.code) !== undefined ? event.code : event.keyCode}`;
+
+        h1Tag.innerHTML = output;
+      };
+
+      document.addEventListener("keydown", print);
+      document.addEventListener("keyup", print);
+    });
+  </script>
+</head>
+
+<body>
+  <h1></h1>
+</body>
+
+</html>
