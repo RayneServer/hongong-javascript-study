@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    h1 {
+      user-select: none;
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      let counter = 0;
+      let isConnect = false;
+
+      const h1Tag = document.querySelector("h1");
+      const pTag = document.querySelector("p");
+      const btnConnect = document.querySelector("#btn-connect");
+      const btnDisconnect = document.querySelector("#btn-disconnect");
+
+      const connectHandler = (event) => {
+        h1Tag.textContent = `Click 횟수: ${counter++}`;
+      };
+
+      btnConnect.addEventListener("click", () => {
+        if (!isConnect) {
+          h1Tag.addEventListener("click", connectHandler);
+          pTag.textContent = "Event 연결 상태: 연결";
+          isConnect = true;
+        }
+      });
+
+      btnDisconnect.addEventListener("click", () => {
+        if (isConnect) {
+          h1Tag.removeEventListener("click", connectHandler);
+          pTag.textContent = "Event 연결 상태: 해제";
+          isConnect = false;
+        }
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <h1>Click 횟수: 0</h1>
+  <button type="button" id="btn-connect">Event 연결</button>
+  <button type="button" id="btn-disconnect">Event 제거</button>
+  <p>Event 연결 상태: 해제</p>
+</body>
+
+</html>
