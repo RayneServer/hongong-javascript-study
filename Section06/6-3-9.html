@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const cloud = {
+      name: "cloud",
+      age: 6,
+      species: "dog"
+    };
+
+    const star = {
+      ...cloud,
+      name: "star",
+      age: 1,
+      vaccine: true
+    };
+
+    console.log(JSON.stringify(cloud, null, 2));
+    console.log(JSON.stringify(star, null, 2));
+    
+  </script>
+</body>
+
+</html>
