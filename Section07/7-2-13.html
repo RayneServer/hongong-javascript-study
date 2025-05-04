@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const inputEl = document.querySelector("#todo");
+      const todoListEl = document.querySelector("#todo-list");
+      const addBtn = document.querySelector("#add-btn");
+      let keyCount = 0;
+
+      const addTodo = () => {
+        if (inputEl.value.trim() === "") {
+          alert("할 일을 입력해주세요.");
+          return;
+        }
+
+        const todoItem = document.createElement("div");
+        const todoCheckbox = document.createElement("input");
+        const todoText = document.createElement("span");
+        const todoBtn = document.createElement("button");
+
+        const todoKey = keyCount++;
+
+        todoItem.setAttribute("data-key", todoKey);
+        todoItem.appendChild(todoCheckbox);
+        todoItem.appendChild(todoText);
+        todoItem.appendChild(todoBtn);
+        todoListEl.appendChild(todoItem);
+
+        todoCheckbox.type = "checkbox";
+        todoCheckbox.addEventListener("change", (event) => {
+          todoItem.style.textDecoration = event.target.checked ? "line-through" : "";
+        });
+
+        todoText.textContent = inputEl.value;
+
+        todoBtn.textContent = "제거하기";
+        todoBtn.addEventListener("click", () => {
+          removeTodo(todoKey);
+        });
+
+        inputEl.value = "";
+      };
+
+      const removeTodo = (key) => {
+        const item = document.querySelector(`[data-key="${key}"]`);
+        todoListEl.removeChild(item);
+      };
+
+      addBtn.addEventListener("click", addTodo);
+      inputEl.addEventListener("keyup", (event) => {
+        const ENTER_KEYCODE = 13;
+        if (event.keyCode === ENTER_KEYCODE) {
+          addTodo();
+        }
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <h1>할 일 목록</h1>
+  <input type="text" id="todo">
+  <button type="button" id="add-btn">추가하기</button>
+  <div id="todo-list">
+
+  </div>
+</body>
+
+</html>
