@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const textareaEl = document.querySelector("textarea");
+      const h1El = document.querySelector("h1");
+      let timerId;
+
+      textareaEl.addEventListener("focus", () => {
+        timerId = setInterval(() => {
+          const inputLength = textareaEl.value.length;
+          h1El.textContent = `글자 수: ${inputLength}`;
+        }, 50);
+      });
+
+      textareaEl.addEventListener("blur", () => {
+        clearInterval(timerId);
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <h1></h1>
+  <textarea></textarea>
+</body>
+
+</html>

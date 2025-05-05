@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const pEl = document.querySelector("p");
+      const inputEl = document.querySelector("input");
+      const eraseBtn = document.querySelector("button");
+
+      const savedValue = localStorage.getItem("input");
+
+      if (savedValue) {
+        inputEl.value = savedValue;
+        pEl.textContent = `이전 실행 때의 마지막 값: ${savedValue}`;
+      }
+
+      inputEl.addEventListener("keyup", (event) => {
+        const value = event.currentTarget.value;
+        localStorage.setItem("input", value);
+      });
+
+      eraseBtn.addEventListener("click", (event) => {
+        localStorage.clear();
+        inputEl.value = "";
+      });
+    });
+
+  </script>
+</head>
+
+<body>
+  <p></p>
+  <button type="button">지우기</button>
+  <input type="text">
+</body>
+
+</html>
