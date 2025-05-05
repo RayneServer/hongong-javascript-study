@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+    function createStudent(name, korean, english, math, science) {
+      return {
+        name: name,
+        korean: korean,
+        english: english,
+        math: math,
+        science: science,
+
+        getSum () {
+          return this.korean + this.english + this.math + this.science;
+        },
+
+        getAvg () {
+          return this.getSum() / 4;
+        },
+
+        toString () {
+          return `${this.name}\t${this.getSum()}점\t${this.getAvg()}점\n`;
+        }
+      }
+    }
+
+    const students = [];
+    students.push(createStudent("구름", 87, 98, 88, 90));
+    students.push(createStudent("별이", 92, 98, 96, 88));
+    students.push(createStudent("겨울", 76, 96, 94, 86));
+    students.push(createStudent("바다", 98, 52, 98, 92));
+
+    let result = "이름\t총점\t평균\n";
+    for (const student of students) {
+      result += student.toString();
+    }
+
+    console.log(result);
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
