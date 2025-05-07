@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- React.js -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+  <!-- Babel.js -->
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    class App extends React.Component {
+      constructor (props) {
+        super(props);
+        this.state = {
+          inputNumber: 0,
+          resultNumber: 0
+        };
+
+        this.changeNumber = this.changeNumber.bind(this);
+        this.changeUnit = this.changeUnit.bind(this);
+      }
+
+      render () {
+        return <div>
+          <input type="text" value={this.state.inputNumber} onChange={this.changeNumber} /> cm = {this.state.resultNumber}
+          <select onChange={this.changeUnit}>
+            <option>mm</option>
+            <option>m</option>
+            <option>inch</option>
+          </select>
+        </div>
+      }
+
+      changeNumber (event) {
+        this.setState({
+          inputNumber: event.target.value
+        });
+      }
+
+      changeUnit (event) {
+        const unit = event.target.value;
+
+        switch (unit) {
+          case "mm":
+            this.setState({
+              resultNumber: this.state.inputNumber * 10
+            });
+            break;
+
+          case "m":
+            this.setState({
+              resultNumber: this.state.inputNumber * 0.01
+            });
+            break;
+
+          case "inch":
+            this.setState({
+              resultNumber: this.state.inputNumber / 2.54
+            });
+            break;
+        }
+      }
+    }
+
+    const container = document.getElementById("root");
+    ReactDOM.render(<App />, container);
+  </script>
+</body>
+
+</html>

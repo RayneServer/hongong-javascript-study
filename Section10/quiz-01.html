@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- React.js -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+  <!-- Babel.js -->
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    class App extends React.Component {
+      constructor (props) {
+        super(props);
+        this.state = {
+          checked: false,
+          count: 0
+        };
+
+        this.checkTimer = this.checkTimer.bind(this);
+      }
+
+      render () {
+        const timerStyle = {
+          display: this.state.checked ? "block" : "none"
+        };
+
+        return <div>
+          <input type="checkbox" onClick={this.checkTimer} />타이머 활성화
+          <h1 style={timerStyle}>{this.state.count}초</h1>
+        </div>
+      }
+
+      checkTimer (event) {
+        this.setState({
+          checked: event.target.checked
+        });
+
+        if (event.target.checked) {
+          this.startTimer();
+        } else {
+          this.stopTimer();
+        }
+      }
+
+      startTimer () {
+        this.timerId = setInterval(() => {
+          this.setState({
+            count: this.state.count + 1
+          });
+        }, 1000);
+      }
+
+      stopTimer () {
+        clearInterval(this.timerId);
+        this.setState({
+          count: 0
+        });
+      }
+    }
+
+    const container = document.getElementById("root");
+    ReactDOM.render(<App />, container);
+  </script>
+</body>
+
+</html>
